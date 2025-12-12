@@ -1,0 +1,256 @@
+/* ========= RESETEO BÁSICO ========= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #fafafa;
+  color: #555;
+}
+
+/* ========= CABECERO CON FONDO COMO LA IMAGEN ========= */
+.cabecero {
+  /* degradado fondo + imagen de patrón (puedes cambiar la url por otra) */
+  background-image:
+    linear-gradient(135deg, rgba(195,55,100,0.95), rgba(29,38,113,0.95)),
+    url("https://i.imgur.com/aYQZ4qE.png");
+  background-size: cover;
+  background-position: center;
+  padding: 3.5rem 1rem 4.5rem;
+  color: #fff;
+}
+
+.presupuesto {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.presupuesto_titulo {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.presupuesto_valor {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* barras de INGRESOS / EGRESOS como en la imagen */
+.presupuesto_ingreso,
+.presupuesto_egreso {
+  max-width: 520px;
+  margin: 0.4rem auto;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.presupuesto_ingreso {
+  background-color: #28b9b5;
+}
+
+.presupuesto_egreso {
+  background-color: #ff5049;
+}
+
+.presupuesto_ingreso--texto,
+.presupuesto_egreso--texto {
+  color: #fff;
+}
+
+.derecha {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.presupuesto_ingreso--valor,
+.presupuesto_egreso--valor {
+  font-weight: 600;
+  color: #fff;
+}
+
+.presupuesto_egreso--porcentaje {
+  background-color: rgba(255,255,255,0.35);
+  padding: 0.1rem 0.45rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+/* ========= BARRA BLANCA DEL FORMULARIO ========= */
+.agregar {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-top: -1.6rem;
+}
+
+.agregar_contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.agregar_tipo,
+.agregar_descripcion,
+.agregar_valor {
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.9rem;
+}
+
+.agregar_tipo {
+  width: 60px;
+}
+
+.agregar_descripcion {
+  flex: 1;
+}
+
+.agregar_valor {
+  width: 140px;
+}
+
+.agregar_tipo:focus,
+.agregar_descripcion:focus,
+.agregar_valor:focus {
+  outline: none;
+  border-color: #28b9b5;
+}
+
+.agregar_btn {
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  border: 2px solid #28b9b5;
+  background-color: #fff;
+  color: #28b9b5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agregar_btn:hover {
+  background-color: #28b9b5;
+  color: #fff;
+}
+
+/* ========= CONTENEDOR PRINCIPAL ========= */
+.contenedor {
+  max-width: 900px;
+  margin: 2.8rem auto 3rem;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.ingreso_titulo,
+.egreso_titulo {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  color: #28b9b5;
+}
+
+.egreso_titulo {
+  color: #ff5049;
+}
+
+/* listas */
+#lista-ingresos,
+#lista-egresos {
+  padding: 0.3rem 0;
+}
+
+/* cada fila de ingreso/egreso */
+.elemento {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.92rem;
+}
+
+.elemento:last-child {
+  border-bottom: none;
+}
+
+.elemento_descripcion {
+  color: #555;
+}
+
+.elemento_valor {
+  min-width: 90px;
+  text-align: right;
+}
+
+.ingreso .elemento_valor {
+  color: #28b9b5;
+}
+
+.egreso .elemento_valor {
+  color: #ff5049;
+}
+
+.elemento_porcentaje {
+  font-size: 0.78rem;
+  background-color: #ffebe9;
+  color: #ff5049;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  margin-left: 0.4rem;
+}
+
+.elemento_eliminar_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.2rem;
+}
+
+.elemento_eliminar_btn ion-icon {
+  font-size: 1rem;
+  color: #c0392b;
+}
+
+/* ========= UTILIDAD FLOAT CLEAR ========= */
+.limpiarEstilos::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 720px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .agregar_contenedor {
+    flex-wrap: wrap;
+  }
+
+  .agregar_valor {
+    width: 100%;
+  }
+}

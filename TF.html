@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplicación Presupuesto</title>
+<link  rel="stylesheet"  href="style.css">
+
+</head>
+
+<!-- cuando cargue el body se ejecuta cargarApp() -->
+<body onload="cargarApp()">
+
+  <!-- CABECERO -->
+  <div class="cabecero">
+    <div class="presupuesto">
+      <div class="presupuesto_titulo">Presupuesto Disponible</div>
+
+      <!-- este valor se reemplaza con JS -->
+      <div class="presupuesto_valor" id="presupuesto">+ 0.00</div>
+
+      <div class="presupuesto_ingreso limpiarEstilos">
+        <div class="presupuesto_ingreso--texto">INGRESOS</div>
+        <div class="derecha">
+          <div class="presupuesto_ingreso--valor" id="ingresos">+ 0.00</div>
+          <div class="presupuesto_ingreso--porcentaje"></div>
+        </div>
+      </div>
+
+      <div class="presupuesto_egreso limpiarEstilos">
+        <div class="presupuesto_egreso--texto">EGRESOS</div>
+        <div class="derecha limpiarEstilos">
+          <div class="presupuesto_egreso--valor" id="egresos">- 0.00</div>
+          <div class="presupuesto_egreso--porcentaje" id="porcentaje">0%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULARIO -->
+  <form id="forma" onsubmit="return false;">
+    <div class="agregar">
+      <div class="agregar_contenedor">
+        <select class="agregar_tipo" id="tipo">
+          <option value="ingreso" selected>+</option>
+          <option value="egreso">-</option>
+        </select>
+
+        <input
+          type="text"
+          class="agregar_descripcion"
+          id="descripcion"
+          placeholder="Agregar Descripción"
+        >
+
+        <input
+          type="number"
+          class="agregar_valor"
+          id="valor"
+          placeholder="Valor"
+          step="any"
+        >
+
+        <button
+          type="button"
+          class="agregar_btn"
+          onclick="agregarDato()"
+        >
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <!-- CONTENEDOR INGRESOS / EGRESOS -->
+  <div class="contenedor limpiarEstilos">
+    <!-- INGRESOS -->
+    <div class="ingreso">
+      <h2 class="ingreso_titulo">INGRESOS</h2>
+      <div id="lista-ingresos">
+        <!-- JS inserta aquí los ingresos -->
+      </div>
+    </div>
+
+    <!-- EGRESOS -->
+    <div class="egreso">
+      <h2 class="egreso_titulo">EGRESOS</h2>
+      <div id="lista-egresos">
+        <!-- JS inserta aquí los egresos -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Ionicons para los íconos -->
+  <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- Tu lógica de JavaScript -->
+  <script src="tfl.js"></script>
+</body>
+</html>
